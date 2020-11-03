@@ -10,6 +10,7 @@ class Template {
     });
   }
 
+  //deal block
   buildDeal(data) {
     return this.deal
       .replace("{{ title }}", data.title)

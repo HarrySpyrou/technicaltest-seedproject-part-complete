@@ -12,12 +12,17 @@ class ViewFilters {
     this.addFilterEventHandlers();
   }
 
+  //adds event listeners to filters on the left
   addFilterEventHandlers() {
+    
+    //it's three filters 'broadband, tv, mobile'
     if (this.productFilters.length) {
       this.productFilters.forEach(element => {
         element.addEventListener("change", this.onProductFilterChange);
       });
     }
+
+    //remaining filters underneath
     if (this.providerFilters.length) {
       this.providerFilters.forEach(element => {
         element.addEventListener("change", this.onProviderFilterChange);
@@ -38,11 +43,13 @@ class ViewFilters {
     }
   }
 
+  //save filter change on checking/unchecking to store
   onProductFilterChange(event) {
     this.store.setProductFilter(event.target.value);
   }
 
   onProviderFilterChange(event) {
+    console.log(event.target.value)
     const value = parseInt(event.target.value, 10)
     this.providerFilters.forEach(element => (element.checked = false));
     if (this.store.state.providerFilter === value) {
