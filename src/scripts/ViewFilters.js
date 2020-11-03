@@ -49,7 +49,6 @@ class ViewFilters {
   }
 
   onProviderFilterChange(event) {
-    console.log(event.target.value)
     const value = parseInt(event.target.value, 10)
     this.providerFilters.forEach(element => (element.checked = false));
     if (this.store.state.providerFilter === value) {

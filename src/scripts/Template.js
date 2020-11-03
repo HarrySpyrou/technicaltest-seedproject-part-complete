@@ -12,10 +12,10 @@ class Template {
 
   //deal block
   buildDeal(data) {
-    console.log(data)
+    const providerName = data.provider.name;
     return this.deal
       .replace("{{ title }}", data.title)
-      .replace("{{ provider }}", data.provider.name)
+      .replace("{{ provider }}", providerName)
       .replace(
         "{{ upfrontCost }}",
         data.cost.upfrontCost > 0 ? this.currencyFormatter.format(data.cost.upfrontCost) : 'None.'
@@ -24,9 +24,9 @@ class Template {
         "{{ totalCost }}",
         this.currencyFormatter.format(data.cost.totalContractCost)
       )
-      .replace("{{ contractLength }}", data.contractLength + " months")
+      .replace("{{ contractLength }}", `${data.contractLength} months`)
       .replace("{{ productTypes }}", data.productTypes)
-      .replace("{{ providerName }}", data.provider.name)
+      .replace("{{ providerName }}", providerName)
       .replace(
         "{{ productList }}",
         this.buildProductIconList(data.productTypes)
