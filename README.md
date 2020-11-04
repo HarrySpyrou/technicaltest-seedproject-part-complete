@@ -1,3 +1,22 @@
+#Notes: 
+I would only do bugfixes on a release branch but since this is a test, I'll pretend these are not updates but bugfixes.
+
+1. I went for the simplest solution I could think of. Hiding/showing divs based on the filter logic. I wouldn't go for this solution if I had to deal with more than a full page of anything. I would create another client call to the backend that will pass in the filters that I need and get the backend to serve only the deals that I need to show.
+2. I was surprised thinking it doesn't work when I included 'Fibre' in the broadband deals. It turns out all of them are either broadband or Fibre broadband.
+3. I had almost no clue how jest works so that took an hour or so to figure out.
+4. Didn't write tests for the whole project, only the functions I created/modified.
+5. Used Git flow to work with branches. This release candidate would be the one that in a real world scenario gets built and released by the pipeline.
+6. There's one of the 'features' that was pushed as a fast forward by mistake, but with the correct procedure.
+
+Reading docs about Jest, reading code to understand what each file/line is doing: around 2-3 hours
+Coding solution: 1.5 hour overall with the tests included.
+
+The time on the repo spans out throughout a day because I unfortunately had a lot of work so I was doing it in between.
+
+To whoever wrote the test: Two things I found very clever. The fact it's Vanilla JS as most people know Angular, Vue but not vanilla. 
+Second is that everything has pretty much a js class as it usually any library (like Vue) involves reacting on the templates.
+
+
 # Decision Technologies Front-End Technical Test
 
 ## Getting started
