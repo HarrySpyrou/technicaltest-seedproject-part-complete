@@ -1,4 +1,6 @@
 .deal {
+  transition: all 0.3s linear;
+  
   &__header {
     margin-bottom: 16px;
   }
@@ -37,5 +39,45 @@
 
   &__products > li:not(:first-child) {
     margin-left: 2px;
+  }  
+
+  &[data-provider="3"] {
+    border: 2px solid rgba(152, 211, 229, 1);
+
+    &:hover {
+      background-color: rgba(152, 211, 229, 0.1);
+    }
+  }
+  
+  &[data-provider="42"] {
+    border: 2px solid rgba(135, 0, 95, 1);
+
+    &:hover {
+      background-color: rgba(135, 0, 95, 0.1);
+    }
+  }
+
+  &[data-provider="116"] {
+    border: 2px solid rgba(26, 182, 83, 1);
+
+    &:hover {
+      background-color: rgba(26, 182, 83, 0.1);
+    }
+  }
+
+  &[data-provider="48"] {
+    border: 2px solid rgba(0, 123, 133, 1);
+
+    &:hover {
+      background-color: rgba(0, 123, 133, 0.1);
+    }
+  }
+
+  &[data-provider="1"] {
+    border: 2px solid rgba(103, 65, 134, 1);
+
+    &:hover {
+      background-color: rgba(103, 65, 134, 0.1);
+    }
   }
 }
