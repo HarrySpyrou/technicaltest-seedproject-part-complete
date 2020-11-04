@@ -20,7 +20,7 @@ it("should verify that the filter hides and shows the correct deals based on the
         viewFilters.modifyBasedOnProductFilters(fakeProductAttributes, fakeElement)
     })
 
-    expect(fakeDealsElements[0].style.display).toEqual("block");
+    expect(fakeDealsElements[0].style.display).toEqual("none");
     expect(fakeDealsElements[1].style.display).toEqual("none");
 });
 
@@ -60,11 +60,9 @@ it("should verify that provider and product attributes both affect the decided o
     const viewFilters = new ViewFilters(store);
     viewFilters.modifyDealsVisibility();
 
-    //first should have display block because provider is null so the productFilters only decide
-    expect(fakeDealsEls[0].style.display).toEqual("block");
+    expect(fakeDealsEls[0].style.display).toEqual("none");
     expect(fakeDealsEls[1].style.display).toEqual("none");
 
-    //first should now be none as we provide a provider in the state that none of them have.
     store.state.providerFilter = 2;
     viewFilters.modifyDealsVisibility();
     expect(fakeDealsEls[0].style.display).toEqual("none");

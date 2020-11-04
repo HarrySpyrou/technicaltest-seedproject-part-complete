@@ -65,9 +65,16 @@ class ViewFilters {
   modifyDealsVisibility() {
     const dealsElements = document.getElementsByClassName("deal");
     Array.from(dealsElements).forEach(element => {
+      if (this.store.state.productFilters.length !== 0) {
       element.style.display = "none";
-
+      }
+      else {
+        element.style.display = "block";
+      }
       const productAttributes = element.dataset.producttype.replace("Fibre ", "").toLowerCase().split(",");
+      const phoneIndex = productAttributes.indexOf("phone");
+      productAttributes.splice(phoneIndex, 1);
+
       const provider =  parseInt(element.dataset.provider);
 
       if (this.store.state.providerFilter == null) {
@@ -85,17 +92,33 @@ class ViewFilters {
     });;
     const isProductFilterIncluded = lowerProductFilters.every(attr => productAttributes.includes(attr));
 
-    if (isProductFilterIncluded) {
-      element.style.display = "block";
-    }
+      if (isProductFilterIncluded && this.store.state.productFilters.length === productAttributes.length) {
+        element.style.display = "block";
+      }
+
   }
 
   modifyBasedOnBothFilters(provider, element, productAttributes) {
     const isProviderIncluded = this.store.state.providerFilter === parseInt(provider);
     const isProductFilterIncluded = this.store.state.productFilters.every(attr => productAttributes.includes(attr));
+    const lengthMatching = this.store.state.productFilters.length === productAttributes.length;
+    const productFiltersExist = this.store.state.productFilters.length > 0;
 
-    if (isProviderIncluded && isProductFilterIncluded) {
-      element.style.display = "block";
+    if (productFiltersExist) {
+      if (isProviderIncluded && isProductFilterIncluded && lengthMatching) {
+        element.style.display = "block";
+      }
+      else if (element.style != undefined){
+        element.style.display = "none";
+      }
+    }
+    else {
+      if (isProviderIncluded && isProductFilterIncluded) {
+        element.style.display = "block";
+      }
+      else {
+        element.style.display = "none";
+      }
     }
   }
 
