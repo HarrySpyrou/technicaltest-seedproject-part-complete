@@ -148,15 +148,16 @@
 
     <footer class="site-footer">
       <div class="site-trunk">
-        <span class="site-footer__colophon"
-          >&copy; 2016-2019 Decision Technologies. All Rights Reserved.</span
-        >
+        <span class="site-footer__colophon">
+          &copy; 2016-2019 Decision Technologies. All Rights Reserved.
+        </span>
       </div>
     </footer>
 
     <!-- Templates -->
+    <!-- deal block -->
     <script id="template-deal" type="text/template">
-      <article class="deal shadow">
+      <article class="deal shadow" data-provider="{{ providerId }}" data-productType="{{ productTypes }}">
           <header class="deal__header">
             <h3 class="deal__title">{{ title }}</h3>
           </header>

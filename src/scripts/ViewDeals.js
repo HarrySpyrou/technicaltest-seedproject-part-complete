@@ -12,7 +12,7 @@ class ViewDeals {
     }
   }
 
-  update(state) {
+  update() {
     this.render(this.store.deals)
   }
 }

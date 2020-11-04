@@ -10,6 +10,7 @@ class Template {
     });
   }
 
+  //deal block
   buildDeal(data) {
     return this.deal
       .replace("{{ title }}", data.title)
@@ -22,7 +23,9 @@ class Template {
         "{{ totalCost }}",
         this.currencyFormatter.format(data.cost.totalContractCost)
       )
-      .replace("{{ contractLength }}", data.contractLength + " months")
+      .replace("{{ contractLength }}", `${data.contractLength} months`)
+      .replace("{{ productTypes }}", data.productTypes)
+      .replace("{{ providerId }}", data.provider.id)
       .replace(
         "{{ productList }}",
         this.buildProductIconList(data.productTypes)
