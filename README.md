@@ -1,4 +1,7 @@
-#Notes: 
+# Notes:
+# Important:
+I originally thought of a filtering system that makes more sense to me (e.g. if someone selects TV and mobile don't show ONLY these two but show anything that has TV, mobile and something else extra as I felt the user would benefit from it). *However*, I realised that by doing this I'm going to fail so last hotfix is to meet the exact requirements.
+ 
 I would only do bugfixes on a release branch but since this is a test, I'll pretend these are not updates but bugfixes.
 
 1. I went for the simplest solution I could think of. Hiding/showing divs based on the filter logic. I wouldn't go for this solution if I had to deal with more than a full page of anything. I would create another client call to the backend that will pass in the filters that I need and get the backend to serve only the deals that I need to show.
