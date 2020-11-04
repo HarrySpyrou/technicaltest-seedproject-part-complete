@@ -67,7 +67,7 @@ class ViewFilters {
     Array.from(dealsElements).forEach(element => {
       element.style.display = "none";
 
-      const productAttributes = element.dataset.producttype.toLowerCase().split(",");
+      const productAttributes = element.dataset.producttype.replace("Fibre ", "").toLowerCase().split(",");
       const provider =  parseInt(element.dataset.provider);
 
       if (this.store.state.providerFilter == null) {
